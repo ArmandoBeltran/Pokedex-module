@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="pokedex_pokemon_type_view_tree" model="ir.ui.view">
+        <field name="name">Tree view for pokemon type</field>
+        <field name="model">pokedex.pokemon.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="pokedex_pokemon_type_view_form" model="ir.ui.view">
+        <field name="name">Form view for pokemon type</field>
+        <field name="model">pokedex.pokemon.type</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="image_1920" widget="image" class="oe_avatar" options="{'preview_image': 'image_128'}"/>
+                    <div class="oe_left">
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                        </group>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="pokedex_pokemon_type_action" model="ir.actions.act_window">
+        <field name="name">Pokemon Type</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pokedex.pokemon.type</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" eval="False" />
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Define the pokemon type
+            </p>
+        </field>
+    </record>
+    <!-- menus -->
+    <menuitem id="pokedex_type_menu" name="Pokedex Type" web_icon="pojedex,static/description/icon.png" sequence="1"/>
+
+    <menuitem id="pokedex_pokemon_type_menu"
+        action="pokedex_pokemon_type_action"
+        parent="pokedex_type_menu" sequence="1" name="Pokemon Type"/>
+</odoo>
